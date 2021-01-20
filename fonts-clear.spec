@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : fonts-clear
 Version  : 1
-Release  : 2
+Release  : 3
 URL      : https://github.com/insilications/fonts-clr/archive/master.zip
 Source0  : https://github.com/insilications/fonts-clr/archive/master.zip
 Summary  : No detailed summary available
@@ -36,8 +36,9 @@ cd %{_builddir}/fonts-clr-master
 unset http_proxy
 unset https_proxy
 unset no_proxy
+export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1594423596
+export SOURCE_DATE_EPOCH=1611150662
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -55,7 +56,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1594423596
+export SOURCE_DATE_EPOCH=1611150662
 rm -rf %{buildroot}
 pushd clr-build
 %make_install
